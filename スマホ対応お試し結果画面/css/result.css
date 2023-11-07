@@ -1,0 +1,954 @@
+ /* font-family: 'Noto Serif JP';
+    font-style: normal;
+    font-family: 'Cherry Bomb One', cursive;
+font-family: 'Kiwi Maru', serif;*/
+
+ * {
+     margin: 0;
+     padding: 0;
+ }
+
+ body {
+     display: flex;
+     font-family: 'Oswald', sans-serif;
+     font-family: 'Zen Antique', serif;
+ }
+
+ .wrapper {
+     height: auto;
+     /* background-color: #DFF0FF;
+     background: linear-gradient(175.86deg, rgba(93, 115, 186, 0.19) 1.73%, rgba(61, 130, 198, 0.1) 17.17%, rgba(79, 175, 229, 0.1) 30.08%, rgba(136, 120, 184, 0.14) 49.08%, rgba(54, 179, 183, 0.21) 69.8%, rgba(153, 197, 88, 0.14) 84.32%, rgba(231, 143, 9, 0.18) 94.64%); */
+     background: linear-gradient(to bottom, #E1ECF4, #F2F8FC);
+     background-repeat: no-repeat;
+     background-attachment: fixed; /* 背景を固定 */
+    }
+
+ .container {
+     max-width: 1020px;
+     width: 60em;
+     padding: 0 10px;
+     margin: 0 auto 2%;
+     box-sizing: border-box;
+ }
+
+
+ dl {
+     display: block;
+     margin-block-start: 1em;
+     margin-block-end: 1em;
+     margin-inline-start: 0px;
+     margin-inline-end: 0px;
+ }
+
+ .ans>dl {
+     margin-bottom: 30px;
+ }
+
+ dt {
+     text-align: center;
+ }
+
+ /* ➀診断結果 おすすめ学科1位*/
+ main {
+     margin-top: 2%;
+ }
+
+ .No1 {
+     background: #FFF;
+     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+
+     border-radius: 55px;
+ }
+
+ .result {
+     padding: 30px;
+     border-radius: 55px;
+     position: relative;
+     overflow: hidden;
+     text-align: center;
+ }
+
+ /* 出力「診断結果」 */
+ .tit {
+     font-weight: 400;
+     font-size: 3em;
+     margin-bottom: 0.2em;
+     align-items: center;
+     letter-spacing: 0.18em;
+ }
+
+ .result-txet {
+     width: 90%;
+     border-top: 1px solid #333;
+     border-bottom: 1px solid #333;
+     padding: 3em 0;
+     margin: 0 auto;
+     background: rgba(29, 85, 197, 0.034);
+ }
+
+ /* おすすめ1位の学科とコース */
+ .No1-gk {
+     font-size: 4em;
+ }
+
+ .No1-co {
+     font-size: 2em;
+ }
+
+ /* 出力キャラクターイラスト*/
+ .No1-img {
+     display: block;
+     margin: 10% auto;
+     text-align: center;
+     float: left;
+     width: 30%;
+ }
+
+ .No1-img img {
+     width: 140%;
+     height: auto;
+     border-radius: 50%;
+     background: #5D73BA;
+     vertical-align: top;
+ }
+
+ /* 説明文 */
+ .No1-sentence {
+     float: right;
+     width: 60%;
+     margin: 10% 4%;
+     text-align: center;
+ }
+
+ .feature {
+     font-size: 3em;
+ }
+
+ .content {
+     font-size: 1.5em;
+     margin-top: 10%;
+ }
+
+ /* ➀レスポンシブ */
+ @media only screen and (max-width: 1130px) {
+     .result-txet {
+         font-size: .8em;
+     }
+
+     .feature {
+         font-size: 2.7em;
+     }
+ }
+
+ @media only screen and (max-width: 930px) {
+     .result-txet {
+         font-size: .7em;
+     }
+
+     .feature {
+         font-size: 2.5em;
+     }
+ }
+
+ @media only screen and (max-width: 767px) {
+     .result-txet {
+         font-size: .6em;
+         padding: 4em 0;
+     }
+
+     .result-img {
+         width: 90%;
+         float: none;
+     }
+
+     .result-img-img {
+         width: 70%;
+     }
+
+     .result-sentence {
+         width: 100%;
+         float: none;
+         margin: 0 auto;
+     }
+
+ }
+    @media only screen and (max-width: 375px) {
+    .No1-img{
+        float: none;
+    }
+    .No1-sentence{
+        float: none;
+        margin:0  auto;
+        text-align: center;
+    }
+    }
+ /* 背景写真 */
+ #img-hi {
+     border-radius: 55px 0px 0px 0px;
+     position: absolute;
+     top: 0%;
+     left: 0%;
+     z-index: 0;
+ }
+
+ #img-mi {
+     border-radius: 0px 0px 55px 0px;
+     margin-right: 0;
+     margin-top: 0;
+     position: absolute;
+     bottom: 0%;
+     right: 0%;
+     z-index: 0;
+ }
+
+ /* 診断結果保存ボタン */
+ .download {
+     text-align: right;
+     font-size: 1.5em;
+     font-family: 'Cherry Bomb One', cursive;
+     font-family: 'Kiwi Maru', serif;
+ }
+
+ .download:hover {
+     color: #00000096;
+ }
+
+ .download img {
+     width: 1em;
+     align-items: center;
+ }
+
+
+ /* 詳しく見るボタン */
+ .detail-botton {
+     width: 40%;
+     height: 2.5em;
+     background-color: #000357;
+     box-shadow: 10px 4px 4px rgba(0, 0, 0, 0.25);
+     border-radius: 4em;
+     margin: 0 auto;
+     font-size: 2em;
+     line-height: 2.4em;
+     text-align: center;
+     align-items: center;
+     overflow: hidden;
+ }
+
+ .detail-botton:hover {
+     letter-spacing: .1em;
+     border-radius: 4em;
+     background-color: #000357b2;
+ }
+
+ #detail {
+     color: #FFFBFB;
+     text-align: center;
+     align-items: center;
+ }
+
+ /* detail-bottonレスポンシブ */
+ @media only screen and (max-width: 1100px) {
+     .detail-botton {
+         font-size: 1.8em;
+     }
+ }
+
+ @media only screen and (max-width: 930px) {
+     .detail-botton {
+         font-size: 1.5em;
+     }
+ }
+
+ @media only screen and (max-width: 767px) {
+     .detail-botton {
+         font-size: 1.4em;
+     }
+ }
+
+
+
+ /* ➁おすすめ学科２位と３位 */
+ .No2-3 {
+     margin-top: 7%;
+     height: 1175px;
+ }
+
+ .hukidasi {
+     padding: 2em;
+     background: #FFA53C;
+     border-radius: 3em;
+     width: 55%;
+     transform: rotate(-3.5deg);
+     font-weight: bold;
+ }
+
+ .hukidasi:before {
+     content: '';
+     position: absolute;
+     display: block;
+     width: 0;
+     height: 0;
+     left: 0;
+     right: 70%;
+     bottom: -20px;
+     margin: 0 auto;
+     border-top: 4em solid #FFA53C;
+     border-right: 4em solid transparent;
+     border-left: 4em solid transparent;
+     transform: rotate(-16deg);
+ }
+
+ .hukidasi-p,
+ .hukidasi-h2 {
+     color: #FFFFFF;
+     font-family: 'Yusei Magic';
+     font-style: normal;
+     text-align: center;
+     position: relative;
+     overflow: hidden;
+     font-size: 2em;
+     align-items: center;
+ }
+
+ /* 吹き出しなどのスタイルは省略 */
+ .jump {
+     animation: 1s jump infinite alternate linear;
+ }
+
+ @keyframes jump {
+     to {
+         transform: transtateY(0);
+     }
+
+     from {
+         transform: translateY(7px);
+     }
+ }
+
+ /* 出力診断結果2位と3位のデータ */
+
+ .No2,
+ .No3 {
+     background: #FFF;
+     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+     padding: 40px;
+     border-radius: 55px;
+     overflow: hidden;
+     margin-top: 5%;
+ }
+
+ .No2 {
+     float: left;
+     width: 49%;
+ }
+
+ .No3 {
+     float: right;
+     width: 49%;
+ }
+
+ /*スマホ画面対応*/
+ @media only screen and (max-width: 375px) {
+    .No2-3 {
+        height: 2700px;
+     }
+     .No2 {
+        float: none;
+        width: 98%;
+    }
+   
+    .No3 {
+        float: none;
+        width: 98%;
+    }
+ }
+
+ /* キャラクター指定 */
+ .character {
+     display: block;
+     margin: 5% auto;
+     text-align: center;
+
+ }
+
+ .character img {
+     width: 70%;
+     border-radius: 50%;
+     background: #5D73BA;
+ }
+
+ /* 文字 */
+ .No23-gk {
+     font-size: 2.4em;
+     text-align: center;
+ }
+
+ .No23-co {
+     font-size: 1.5em;
+     text-align: center;
+     margin: 4% 0;
+ }
+
+ .No23feature {
+     font-size: 1.8em;
+     text-align: center;
+ }
+
+ /* 続きを読む */
+
+ .cp_box *,
+ .cp_box *:before,
+ .cp_box *:after {
+     -webkit-box-sizing: border-box;
+     box-sizing: border-box;
+ }
+
+ .cp_box {
+     position: relative;
+ }
+
+ .cp_box label {
+     position: absolute;
+     z-index: 1;
+     bottom: 0;
+     width: 100%;
+     height: 140px;
+     /* グラデーションの高さ */
+     cursor: pointer;
+     text-align: center;
+     /* 以下グラデーションは背景を自身のサイトに合わせて設定してください */
+     background: linear-gradient(to bottom, rgba(250, 252, 252, 0) 0%, rgba(250, 252, 252, 0.95) 90%);
+ }
+
+ .cp_box input:checked+label {
+     background: inherit;
+     /* 開いた時にグラデーションを消す */
+ }
+
+ .cp_box label:after {
+     line-height: 2.5rem;
+     position: absolute;
+     z-index: 2;
+     bottom: 20px;
+     left: 50%;
+     width: 16rem;
+     font-family: FontAwesome;
+     content: '\f13a' ' 続きをよむ';
+     transform: translate(-50%, 0);
+     letter-spacing: 0.05em;
+     color: #ffffff;
+     border-radius: 20px;
+     background-color: rgba(27, 37, 56, 1);
+ }
+
+ .cp_box input {
+     display: none;
+ }
+
+ .cp_box .cp_container {
+     overflow: hidden;
+     height: 250px;
+     /* 開く前に見えている部分の高さ */
+     transition: all 0.5s;
+ }
+
+ .cp_box input:checked+label:after {
+     font-family: FontAwesome;
+     content: '\f139' ' 閉じる';
+ }
+
+ .cp_box input:checked~.cp_container {
+     height: auto;
+     padding-bottom: 80px;
+     /* 閉じるボタンのbottomからの位置 */
+     transition: all 0.5s;
+ }
+
+ .No23content {
+     margin-top: 10%;
+     font-size: 1.5em;
+ }
+
+ /* ➂紹介学科一覧 */
+ .hero {
+     clear: both;
+ }
+
+ /* 吹き出し */
+ .hukidasi-itiran {
+     display: flex;
+     position: relative;
+     display: inline-block;
+     margin: 1.5em 15px 1.5em 0;
+     padding: 1.5em;
+     width: 40%;
+     height: 60%;
+     line-height: 3em;
+     text-align: center;
+     color: #FFF;
+     font-size: 1.3em;
+     font-weight: bold;
+     background: #000357;
+     border-radius: 4em;
+     box-sizing: border-box;
+     transform: rotate(3.5deg);
+     top: 50%;
+ }
+
+ .hukidasi-itiran:before {
+     content: "";
+     position: absolute;
+     bottom: -34px;
+     left: -15px;
+     margin-top: -50px;
+     border: 30px solid transparent;
+     border-left: 40px solid #000357;
+     z-index: 0;
+     -webkit-transform: rotate(45deg);
+     transform: rotate(130deg);
+ }
+
+ .right {
+     text-align: right;
+ }
+
+ /* 学科 横スクロール指定*/
+
+ .list {
+     width: 100%;
+     margin-top: 2%;
+     box-sizing: border-box;
+ }
+
+ .department_list {
+     margin-top: 5%;
+     display: flex;
+     overflow-x: scroll;
+     width: 100%;
+ }
+
+ .department_list::-webkit-scrollbar {
+     height: 14px;
+     /* スクロールバーの高さ */
+ }
+
+ .department_list::-webkit-scrollbar-thumb {
+     background: #7C7777;
+     /* ツマミの色 */
+     border-radius: 7px;
+     /* ツマミ両端の丸み */
+ }
+
+ .department_list::-webkit-scrollbar-track {
+     background: #535252;
+     /* トラックの色 */
+     border-radius: 7px;
+     /* トラック両端の丸み */
+ }
+
+ /************************************
+** スライダー
+************************************/
+ .department_list {
+     display: -webkit-box;
+     display: -ms-flexbox;
+     display: flex;
+     overflow-x: scroll;
+     -webkit-overflow-scrolling: touch;
+     -ms-overflow-style: touch;
+     scroll-snap-type: x mandatory;
+     padding: 0 0 1em;
+     margin: 0 0 2em 0;
+     scroll-behavior: smooth;
+ }
+
+ @media screen and (max-width: 480px) {
+     .slide-wrap .slide-content {
+         flex: 0 0 88%;
+         margin: 0px 5px;
+         scroll-snap-align: center;
+     }
+ }
+
+
+
+ /* 学科ごとの色↓*/
+ .li {
+     box-sizing: border-box;
+     width: 25%;
+     margin: .8em;
+     flex-shrink: 0;
+     background: #FFFFFF;
+     border-radius: 20px;
+ }
+
+ .list01 {
+     border: 4px solid #5D73BA;
+     box-shadow: 5px 10px 10px rgba(93, 115, 186, 0.25);
+ }
+
+ .list02 {
+     border: 4px solid #8878B8;
+     box-shadow: 5px 10px 10px rgba(93, 115, 186, 0.25);
+ }
+
+ .list03 {
+     border: 4px solid #4FAFE5;
+     box-shadow: 5px 10px 10px rgba(93, 115, 186, 0.25);
+ }
+
+ .list04 {
+     border: 4px solid #32B4B0;
+     box-shadow: 5px 10px 10px rgba(93, 115, 186, 0.25);
+ }
+
+ .list05 {
+     border: 4px solid #3D82C6;
+     box-shadow: 5px 10px 10px rgba(93, 115, 186, 0.25);
+ }
+
+ .list06 {
+     border: 4px solid #99C558;
+     box-shadow: 5px 10px 10px rgba(93, 115, 186, 0.25);
+ }
+
+ .list07 {
+     border: 4px solid #E78F09;
+     box-shadow: 5px 10px 10px rgba(93, 115, 186, 0.25);
+ }
+ .btn {
+     margin: 16% auto;
+     width: 60%;
+     padding: 4% 15%;
+     border-radius: 2em;
+     font-family: 'Noto Sans JP';
+     font-style: normal;
+     font-weight: 400;
+     font-size: 1em;
+     color: #000000;
+ }
+
+ .b1 {
+     background: rgba(93, 115, 186, 0.65);
+ }
+
+ .b2 {
+     background: rgba(136, 120, 184, 0.65);
+ }
+
+ .b3 {
+     background: rgba(79, 175, 229, 0.65);
+ }
+
+ .b4 {
+     background: rgba(50, 180, 176, 0.65);
+ }
+
+ .b5 {
+     background: rgba(61, 130, 198, 0.65);
+ }
+
+ .b6 {
+     background: rgba(153, 197, 88, 0.65);
+ }
+
+ .b7 {
+     background: rgba(231, 143, 9, 0.65);
+ }
+
+ /* 学科ごとの色↑ */
+ .list-content {
+     text-align: center;
+     height: 90%;
+
+ }
+
+ .department_list-img {
+     display: block;
+     margin: 13% auto;
+ }
+
+ .department_list-img img {
+     width: 60%;
+     border-radius: 50%;
+     background: #faf9f9;
+     box-shadow: 3px 5px 10px rgba(93, 115, 186, 0.25);
+ }
+
+ .department_list-p {
+     font-weight: 500;
+     font-size: 2em;
+     margin: 15% 0;
+ }
+
+ /* ➃資料請求 */
+ .document_request {
+     margin-top: 10%;
+     padding: 5vh 0;
+     background-image: url("../img/w720.jpg");
+     background-color: rgba(255, 255, 255, 0.8);
+     background-blend-mode: lighten;
+     background-size: cover;
+ }
+
+ .main {
+     color: #000000;
+     margin: 5% auto;
+     text-align: center;
+     font-size: 2.3em;
+ }
+
+ .request_button {
+     display: flex;
+     align-items: center;
+     flex-flow: row wrap;
+     justify-content: center;
+     margin: 0 auto;
+ }
+
+ .request_button li {
+     width: 32%;
+     text-align: center;
+     margin: auto;
+ }
+ /*スマホ画面対応*/
+ @media only screen and (max-width: 375px){
+    .main{
+        font-size: 2.2em;
+    }
+    .request_button{
+        display: block;
+    }
+    .request_button li{
+        width: 50%;
+    }
+ }
+
+ /* ボタン＆吹き出し */
+
+ .huki {
+     font-family: 'Cherry Bomb One', cursive;
+     font-family: 'Kiwi Maru', serif;
+     position: relative;
+     display: inline-block;
+     margin: 1.5em .5em;
+     padding: 1em 2em;
+     font-size: 1.3em;
+     border-radius: 5em;
+     color: white;
+     text-align: center;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .huki:before {
+     content: "";
+     position: absolute;
+     top: 100%;
+     left: 50%;
+     margin-left: -15px;
+     border: 10px solid transparent;
+ }
+
+ /* 吹き出しそれぞれの色 */
+ .scl {
+     background: #65A3FF;
+     height: 82px;
+ }
+
+ .scl:before {
+     border-top: 15px solid #65A3FF;
+
+ }
+
+ .hp {
+     background: #027600;
+     height: 82px;
+ }
+
+ .hp:before {
+     border-top: 15px solid #027600
+ }
+
+ .Li {
+     background: #FF7A00;
+     height: 82px;
+ }
+
+ .Li:before {
+     border-top: 15px solid #FF7A00;
+ }
+
+ #history {
+     margin-top: 7%;
+     text-align: center;
+ }
+
+ .r-b {
+     position: relative;
+     display: block;
+     padding: 2.5em 0;
+     margin: 0 .4em;
+     background-color: #fff;
+     border-radius: .5em;
+     border-width: 1em;
+     font-size: 1.4em;
+ }
+
+ .sclo {
+     border: solid;
+     border-color: #0047FF;
+ }
+
+ .hpo {
+     border: solid;
+     border-color: #017C15;
+ }
+
+ .Lio {
+     border: solid;
+     border-color: #FF7A00;
+ }
+
+ .r-b::after {
+     content: "";
+     display: inline-block;
+     height: .5em;
+     width: .5em;
+     border-top: 2px solid #000;
+     border-right: 2px solid #000;
+     transform: rotate(45deg);
+     margin-bottom: .1em;
+
+ }
+
+ #history {
+     font-size: 1.5em;
+ }
+
+ .top-botton {
+     text-align: center;
+     width: 35em;
+     padding: 2.5em 4.4em;
+     color: #000357;
+     background-color: #fdfdfd;
+     margin: 10% auto 5%;
+     border-radius: 3em;
+     border: 4px solid #000357;
+     display: flex;
+ }
+
+ .icon {
+     width: 3em;
+     height: 3em;
+     margin: auto 0;
+ }
+
+ .top-botton a {
+     font-size: 2.5em;
+ }
+
+ .top-botton a::after {
+     font-size: 2.5em;
+ }
+
+ /* ➆footer */
+
+
+ footer {
+     padding: 1em 0 0 0;
+     text-align: center;
+     background-color: #000357c5;
+     color: #ffffff;
+ }
+
+
+ .iwa {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 1.3em;
+ }
+
+ #iw-rogo {
+     width: 5em;
+ }
+
+ .school{
+    margin: 2%;
+ }
+
+ span {
+     font-size: 1.7em;
+ }
+
+ /* SNS */
+ .sns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+    margin: 3em;
+    margin-left: 3em;
+
+ }
+.sns img{
+    width: 2.3em;
+    margin: 0 2em;
+}
+
+#yt{
+    width: 7em;
+    margin: 0;
+}
+
+#contact_us{
+    margin-top: 2em;
+    margin: 0;
+}
+ .call p {
+     font-size: 1.2em;
+ }
+
+ .tell {
+     width: 1.7em;
+     margin-right: .4em;
+     margin-top: .3em;
+ }
+ #num {
+     font-size: 2em;
+ }
+
+ .icon-mail {
+     width: 1.6em;
+     margin-right: .4em;
+     margin-top: .5em;
+ }
+
+ #mail {
+     font-size: 1.4em;
+ }
+
+
+ #map {
+     margin: 2.9em;
+ }
+
+ #map a {
+     color: white;
+     font-size: 1em;
+ }
+
+ #out p {
+     background-color: #000;
+     color: white;
+     padding: 2em;
+     font-size: .6em;
+ }
+ /*スマホ画面対応*/
+ @media only screen and (max-width: 375px){
+    #history{
+        font-size: 1.7em;
+    }
+ }
